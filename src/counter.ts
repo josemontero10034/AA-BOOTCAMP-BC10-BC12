@@ -12,11 +12,9 @@ let i=0;
 while(i<data.length){
 const letterfound =validatethe(data[i], i);
 console.log(letterfound);
-console.log([...data]);
 console.log(tocount);
 i++;
 }})
-
 
 
 function validatethe(dataitem:string, i:number):number {

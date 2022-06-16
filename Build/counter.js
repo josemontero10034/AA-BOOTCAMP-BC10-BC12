@@ -11,7 +11,6 @@ fs.readFile('text.txt', 'utf8', (err, data) => {
     while (i < data.length) {
         const letterfound = validatethe(data[i], i);
         console.log(letterfound);
-        console.log([...data]);
         console.log(tocount);
         i++;
     }

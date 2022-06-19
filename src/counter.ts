@@ -1,6 +1,5 @@
 
 import fs from "fs";
-
 const text = fs.readFileSync( 'Arts_Integration_in_Elementary_Curriculum__2nd_Edition.txt', 'utf8');
 let i=0;
 const amountthe=(text:string):number=>{

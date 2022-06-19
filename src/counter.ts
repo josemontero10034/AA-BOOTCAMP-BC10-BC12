@@ -1,35 +1,18 @@
-import { count } from "console";
 
-const fs = require('fs');
+import fs from "fs";
 
-fs.readFile('text.txt', 'utf8', (err:any, data:any)=>{
-    if(err){
-        console.error(err);
-        return;
-    }
-    let tocount = 0;
+const text = fs.readFileSync( 'Arts_Integration_in_Elementary_Curriculum__2nd_Edition.txt', 'utf8');
 let i=0;
-while(i<data.length){
-const letterfound =validatethe(data[i], i);
-console.log(letterfound);
-console.log(tocount);
-i++;
-}})
-
-
-function validatethe(dataitem:string, i:number):number {
-    let numberofletter=0;
-if(dataitem =='t'){
-numberofletter=0;
-i=i+1
-if(dataitem[i] =='h'){
-    numberofletter=numberofletter+1;
-    i=i+1
-    if(dataitem[i] =='e'){
-        numberofletter=numberofletter+1;
-        console.log(numberofletter)
-    };
-};
-}; 
-return numberofletter;
-}
+const amountthe=(text:string):number=>{
+const textlength=text.length;
+let manythe=0;
+while(i<textlength){
+    if(text[i] =='t'){
+        if (text[i+1] =='h'){
+            if (text[i+2] =='e'){ 
+                manythe+=1;  
+    }}}
+    i++
+}; return manythe}
+//console.log(secuencesofletterfound(text[i])+"cantida de the"+plusone+"posicion"+i)
+console.log(amountthe(text));

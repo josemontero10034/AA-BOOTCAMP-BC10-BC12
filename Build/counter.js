@@ -4,11 +4,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = __importDefault(require("fs"));
-const text = fs_1.default.readFileSync('text.txt', 'utf8').toLowerCase();
+const text = fs_1.default.readFileSync('Arts_Integration_in_Elementary_Curriculum__2nd_Edition.txt', 'utf8').toLowerCase();
 let i = 0;
 const amountthe = (text) => {
     const textlength = text.length;
     let manythe = 0;
+    const start = new Date().getMilliseconds();
     while (i < textlength) {
         if (text[i] == 't') {
             if (text[i + 1] == 'h') {
@@ -20,7 +21,10 @@ const amountthe = (text) => {
         i++;
     }
     ;
-    return manythe;
+    return {
+        timesfound: manythe,
+        timeinmiliseconds: new Date().getMilliseconds() - start
+    };
 };
 //console.log(secuencesofletterfound(text[i])+"cantida de the"+plusone+"posicion"+i)
 console.log(amountthe(text));
@@ -28,6 +32,7 @@ console.log(amountthe(text));
 const usingindexof = (text) => {
     let i = 0;
     const textlength = text.length;
+    const start = new Date().getMilliseconds();
     let manythe = 0;
     while (i < textlength) {
         let isthe = text[i] + text[i + 1] + text[i + 2];
@@ -39,6 +44,18 @@ const usingindexof = (text) => {
         i++;
     }
     ;
-    return manythe;
+    return {
+        timesfound: manythe,
+        timeinmiliseconds: new Date().getMilliseconds() - start
+    };
 };
 console.log(usingindexof(text));
+//using regex
+const usingregex = () => {
+    const start = new Date().getMilliseconds();
+    return {
+        timesfound: (text.match(/the/gm) || []).length,
+        timeinmiliseconds: new Date().getMilliseconds() - start
+    };
+};
+console.log(usingregex());
